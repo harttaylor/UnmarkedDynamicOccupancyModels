@@ -81,7 +81,7 @@ for(i in names){
                            "X24_1","X24_2","X24_3","X24_4",
                            "X25_1","X25_2","X25_3","X25_4")]
   #reorders recast columns for each visit in correct chronological order
-  write.csv(rearranged, paste0("0_data/processed/6_rearranged.",i,".csv"))  #  
+  write.csv(rearranged, "0_data/processed/6_rearranged_BTNW.csv")
 }
 
 #NOTE: If you examine the data frames, you will find that in year 12 (X11_1

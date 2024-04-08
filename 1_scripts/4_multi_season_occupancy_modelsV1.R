@@ -13,7 +13,7 @@ library(dplyr)
 
 # Load Data
 site.cov<-read.csv("0_data/processed/site.cov.csv")
-yearlycov<-read.csv("0_data/processed/Calling Lake/yearlycovariates.csv")
+yearly.cov<-read.csv("0_data/processed/yearlycovariates.csv")
 
 #Detection covariates - these were prepared in script 2
 recast.julian<-read.csv("0_data/processed/8_rearranged.julian.csv",header=TRUE)
@@ -31,7 +31,7 @@ recast.tcen2<-read.csv("0_data/processed/18_rearranged.tcen2.csv",header=TRUE)
 
 #Example: Single Species
 
-data<-read.csv(paste0("0_data/processed/6_rearranged.",i,".csv"),header=TRUE) # this is bird data that was prepared in scripts 1 & 2
+data<-read.csv("0_data/processed/6_rearranged_BTNW.csv",header=TRUE) # this is bird data that was prepared in scripts 1 & 2
 y<-data[,c(3:ncol(data))]#colums 2 through 101
 S <- nrow(data) # number of sites  (219)
 J <- 4 # number of secondary sampling occasions    (4 per year)

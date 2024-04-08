@@ -1,7 +1,8 @@
 #library(XLConnect)
 library(dplyr)
 library(tidyr)
-setwd("C:/Users/hartt/Documents/Chapter 1")
+
+setwd("C:/Users/hartt/Documents/Chapter 1/UnmarkedDynamicOccupancyModels")
 
 #1. Get point counts from uncut forests
 
@@ -66,17 +67,17 @@ merge1<-merge(pk, spp_cc, by = c("PCODE","PKEY"))
 #a left-handed join: by default, the only observations that will be merged
 #are those observations with PKEY values in both data frames 
 # Filter the merge1 dataframe for only the sites in sites_to_keep
-merge1_filtered <- merge1[merge1$SS %in% sites_to_keep, ]
+#merge1_filtered <- merge1[merge1$SS %in% sites_to_keep, ]
 
 # Check the structure of the filtered dataframe
-str(merge1_filtered)
+#str(merge1_filtered)
 #variables from "pk" in left hand columns followed by variables from "spp_cc"
 #the same variables from both data frames, e.g. PCODE, are renamed, e.g. PCODE.x and PCODE.y
 #unless they are the variables used in merging, e.g. PKEY
 
-merge1_filtered$VISIT<-paste0(merge1_filtered$SS,"_",merge1_filtered$YYYY,"_",merge1_filtered$ROUND)
+merge1$VISIT<-paste0(merge1$SS,"_",merge1$YYYY,"_",merge1$ROUND)
 #creates a variable for station-visit
-write.csv(merge1_filtered, file = "0_data/processed/1_merge1.csv")
+write.csv(merge1, file = "0_data/processed/1_merge1.csv")
 
 #4. calculate total abundance per species per site visit in each cutblock 
 merge1<-read.csv("0_data/processed/1_merge1.csv", header=TRUE)
